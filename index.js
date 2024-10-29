@@ -1,11 +1,18 @@
 const express = require('express');
-const OpenAI = require('openai'); 
+const { OpenAI }= require('openai'); 
 const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
+const cors = require('cors')
 
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT ; 
 app.use(express.json());
+
+app.use(cors({
+  origin: 'https://ai.motivationkaksha.xyz', // Allow requests only from this domain
+  methods: ['POST'], // Limit to POST requests
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY 
