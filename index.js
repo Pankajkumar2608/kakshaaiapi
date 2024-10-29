@@ -9,7 +9,7 @@ const PORT = process.env.PORT ;
 app.use(express.json());
 
 app.use(cors({
-  origin: 'https://ai.motivationkaksha.xyz', // Allow requests only from this domain
+  origin: *, // Allow requests only from this domain
   methods: ['POST'], // Limit to POST requests
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
